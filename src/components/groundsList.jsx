@@ -8,6 +8,13 @@ export default function GroundsList(){
                 <h1>Liste des terrains</h1>
             </header>
             <section  className="contentContainer">
+            {
+            Object.values(data).map((ground) => {
+                console.log(ground)
+                return (
+                    <button>{ground.groundName}</button>
+                )
+            })}
             </section>
         </div>
     )
