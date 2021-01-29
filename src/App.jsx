@@ -21,6 +21,9 @@ function App() {
             <Ground />
           </Route>
         </Switch>
+        <footer>
+          <p>Floran Eiclies</p>
+        </footer>
       </Router>
     </div>
   );

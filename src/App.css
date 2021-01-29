@@ -1,0 +1,70 @@
+body,
+header,
+footer,
+.contentContainer,
+.groundSelector,
+h1,
+h2,
+footer p {
+  width: 100%;
+}
+body {
+  font-family: "Roboto", Arial, Verdana, sans-serif;
+}
+
+header,
+footer,
+.contentContainer,
+.groundSelector {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+header {
+  height: 6rem;
+  background-color: var(--brand-color);
+  align-items: center;
+  margin-bottom: 2rem;
+}
+footer {
+  height: 3rem;
+  background-color: var(--brand-color);
+  align-items: center;
+  margin-top: 2rem;
+  position: absolute;
+  bottom: 0%;
+}
+h1,
+h2,
+.groundSelector a {
+  text-align: center;
+}
+h1 {
+  font-size: 4.5rem;
+  color: white;
+}
+.contentContainer {
+  align-items: flex-start;
+}
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.groundSelector {
+  align-items: flex-start;
+  max-width: 900px;
+}
+.groundSelector a {
+  width: 80%;
+  max-width: 300px;
+  text-decoration: none;
+  background-color: var(--title-color);
+  padding: 1rem 0;
+  margin: 1rem 0;
+  color: white;
+}
+footer p {
+  color: white;
+  text-align: left;
+  padding: 0 2rem;
+}

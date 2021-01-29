@@ -5,12 +5,12 @@ export default function GroundsList(){
     return(
         <div className="contentContainer">
                 <h2>Liste des terrains</h2>
-            <section>
+            <section className="groundSelector">
             {
             Object.values(data).map((ground) => {
                 console.log(ground)
                 return (
-                    <button key={ground.groundId}><Link to={`/${ground.groundId}`}>{ground.groundName}</Link></button>
+                    <Link key={ground.groundId} to={`/${ground.groundId}`}>{ground.groundName}</Link>
                 )
             })}
             </section>
