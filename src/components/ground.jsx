@@ -1,5 +1,45 @@
-export default function Ground(props){
-    const {name, adress, limit, price, baskets, transport}=props;
+import {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
+
+import data from "../assets/test-Uballers-groundsData.json";
+
+export default function Ground(){
+    const {id} = useParams();
+    const [groundDetails, setGroundDetails] = useState({});
+    const [isFavorite, setIsFavorite] = useState(false);
+    
+    useEffect(() => {
+        setGroundDetails(()=>{
+            return Object.values(data).find((e) => e.groundId === id);
+        });
+        if(!localStorage["favoriteGrounds"]){
+            localStorage.setItem('favoriteGrounds', JSON.stringify({}));
+        } else{
+            let favoriteCheck = JSON.parse(localStorage["favoriteGrounds"]);
+            if(Object.keys(favoriteCheck).includes(id)){
+                setIsFavorite(true);
+            }
+        }
+    },[id]);
+    // useEffect(()=>{
+    //     if(!localStorage["favoriteGrounds"]){
+    //         localStorage.setItem('favoriteGrounds', JSON.stringify({}));
+    //     } else{
+    //         let favoriteCheck = JSON.parse(localStorage["favoriteGrounds"]);
+    //         if(Object.keys(favoriteCheck).includes(id)){
+    //             setIsFavorite(true);
+    //         }
+    //     }
+    // },[id]);
+    function favoriteHandler(){
+        let stockFavorite = JSON.parse(localStorage["favoriteGrounds"]);
+        stockFavorite[id] = true;
+        localStorage.removeItem('favoriteGrounds');
+        localStorage.setItem('favoriteGrounds', JSON.stringify(stockFavorite));
+        setIsFavorite(true);
+    }
+    
+    const {groundName, adress, limit, price, basketNumber, transport}=groundDetails;
 
     let filteredPrice = "";
     if (price===""){
@@ -15,12 +55,14 @@ export default function Ground(props){
     }
 
     return(
-        <div>
-            <header>
-                <h1>{name}</h1>
-                <button>Ajouter aux favoris</button>
-            </header>
-            <section className="contentContainer">
+        <div className="contentContainer">
+                <h1>{groundName}</h1>
+                {isFavorite
+                ? <p><span>★</span>Ce terrain a été ajouté à mes favoris.</p>
+                : <button onClick={favoriteHandler}>Ajouter aux favoris</button>
+                }
+                
+            <section>
                 <article className="localisationContainer">
                     <h2>Localisation</h2>
                     {adress!==""
@@ -31,8 +73,8 @@ export default function Ground(props){
                 <article  className="detailsContainer">
                     <h2>Détails du terrain</h2>
                     <p>Accessibilité : {access}</p>
-                    {baskets!==""
-                        ? <p>Nombre de paniers : {baskets}</p>
+                    {basketNumber!==""
+                        ? <p>Nombre de paniers : {basketNumber}</p>
                         : <p>Nombre de paniers : information non enregistrée</p>
                     }
                     {transport!==""

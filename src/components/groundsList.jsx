@@ -1,18 +1,16 @@
-import Ground from "./ground";
+import { Link } from 'react-router-dom';
 import data from "../assets/test-Uballers-groundsData.json";
 
 export default function GroundsList(){
     return(
-        <div >
-            <header>
-                <h1>Liste des terrains</h1>
-            </header>
-            <section  className="contentContainer">
+        <div className="contentContainer">
+                <h2>Liste des terrains</h2>
+            <section>
             {
             Object.values(data).map((ground) => {
                 console.log(ground)
                 return (
-                    <button>{ground.groundName}</button>
+                    <button key={ground.groundId}><Link to={`/${ground.groundId}`}>{ground.groundName}</Link></button>
                 )
             })}
             </section>
