@@ -55,13 +55,26 @@ h2 {
   max-width: 900px;
 }
 .groundSelector a {
-  width: 80%;
-  max-width: 300px;
+  width: 14rem;
+  height: 3rem;
+  transition: width 0.5s, background-color 0.5s, color 0.5s;
   text-decoration: none;
   background-color: var(--title-color);
   padding: 1rem 0;
   margin: 1rem 0;
   color: white;
+}
+.groundSelector a:hover {
+  width: 20rem;
+}
+
+.groundSelector a:active {
+  background-color: white;
+  color: var(--font-color);
+}
+
+.localisationContainer {
+  margin: 2rem 0 1rem 0;
 }
 footer p {
   color: white;

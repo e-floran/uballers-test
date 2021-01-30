@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import data from "./assets/test-Uballers-groundsData.json";
-
 import GroundsList from "./components/groundsList";
 import Ground from "./components/ground";
 import './App.css';
