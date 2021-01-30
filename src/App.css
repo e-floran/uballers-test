@@ -16,8 +16,7 @@ body {
 header,
 footer,
 .contentContainer,
-.groundSelector,
-.contentContainer section {
+.groundSelector {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -95,7 +94,10 @@ footer p {
   padding: 0 2rem;
 }
 .contentContainer section {
-  align-items: flex-start;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 h3 {
   font-size: 1.5rem;
