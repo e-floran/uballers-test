@@ -8,7 +8,6 @@ export default function GroundsList(){
             <section className="groundSelector">
             {
             Object.values(data).map((ground) => {
-                console.log(ground)
                 return (
                     <Link key={ground.groundId} to={`/${ground.groundId}`}>{ground.groundName}</Link>
                 )

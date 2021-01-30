@@ -30,7 +30,7 @@ export default function Ground(){
         setIsFavorite(true);
     }
     
-    const {groundName, adress, limit, price, basketNumber, transport}=groundDetails;
+    const {groundName, address, limit, price, basketNumber, transport}=groundDetails;
 
     let filteredPrice = "";
     if (price===""){
@@ -56,9 +56,9 @@ export default function Ground(){
             <section>
                 <article className="localisationContainer">
                     <h3>Localisation</h3>
-                    {adress!==""
-                        ? <p>{adress}</p>
-                        : <p>Aucune adresse enregistrée</p>
+                    {address!==""
+                        ? <p>{address}</p>
+                        : <p>Aucune addresse enregistrée</p>
                     }
                 </article>
                 <article  className="detailsContainer">

@@ -5,7 +5,8 @@ footer,
 .groundSelector,
 h1,
 h2,
-footer p {
+footer p,
+.contentContainer section {
   width: 100%;
 }
 body {
@@ -15,7 +16,8 @@ body {
 header,
 footer,
 .contentContainer,
-.groundSelector {
+.groundSelector,
+.contentContainer section {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -36,8 +38,14 @@ footer {
 }
 h1,
 h2,
+h3,
 .groundSelector a {
   text-align: center;
+}
+h1,
+h2,
+h3 {
+  color: var(--title-color);
 }
 h1 {
   font-size: 4.5rem;
@@ -54,18 +62,23 @@ h2 {
   align-items: flex-start;
   max-width: 900px;
 }
-.groundSelector a {
+.groundSelector a,
+button {
   width: 14rem;
   height: 3rem;
   transition: width 0.5s, background-color 0.5s, color 0.5s;
-  text-decoration: none;
-  background-color: var(--title-color);
   padding: 1rem 0;
   margin: 1rem 0;
   color: white;
 }
-.groundSelector a:hover {
+.groundSelector a:hover,
+button:hover {
   width: 20rem;
+  cursor: pointer;
+}
+.groundSelector a {
+  background-color: var(--title-color);
+  text-decoration: none;
 }
 
 .groundSelector a:active {
@@ -80,4 +93,24 @@ footer p {
   color: white;
   text-align: left;
   padding: 0 2rem;
+}
+.contentContainer section {
+  align-items: flex-start;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+p {
+  text-align: justify;
+  padding: 0.25rem 1rem;
+  color: var(--font-color);
+}
+p span {
+  font-size: 2.5rem;
+  color: var(--brand-color);
+}
+button {
+  border: none;
+  background-color: var(--brand-color);
 }
